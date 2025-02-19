@@ -44,11 +44,19 @@ package chapter13_abstraction.interfaces;
 */
 public class Main {
     public static void main(String[] args) {
-        RemoteController remoteController =new RemoteController(
+        RemoteController remoteController = new RemoteController(
+                        new PowerButton(),
+                        new VolumeDownButton(),
+                        new VolumeUpButton(),
+                        new ChannelDownButton(),
+                        new ChannelUpButton()
+
+                );
+        AirConditionerController airConditionerController = new AirConditionerController(
                 new PowerButton(),
-                new VolumeDownButton(),
-                new VolumeUpButton()
-        );
+                new TemperatureDownButton(),
+                new TemperatureUpButton()
+                );
         //RemoteController remoteController =new RemoteController();까지 작성햇을 경우에
         /*
             저희가 매개변수 생성자로 정의했기 때문에 오류가 발생함. 그래서 argumnet들을
@@ -81,5 +89,17 @@ public class Main {
         remoteController.onPressedVolumeUpButton();
         remoteController.onUpVolumeUpButton();
 
+        remoteController.onDownChannelDownButton();
+        remoteController.onPressedChannelDownButton();
+        remoteController.onUpChannelUpButton();
+        remoteController.onPressedChannelUpButton();
+
+
+
+
+        AirConditionerController.onPressedtemperatureDownButton();
+        AirConditionerController.onDowntemperatureDownButton();
+        AirConditionerController.onPressedtemperatureUpButton();
+        AirConditionerController.onUptemperatureUpButton();
     }
 }

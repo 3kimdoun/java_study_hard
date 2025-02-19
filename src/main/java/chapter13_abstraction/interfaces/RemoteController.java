@@ -11,14 +11,23 @@ public class RemoteController {
     private PowerButton powerButton;
     private VolumeDownButton volumeDownButton;
     private VolumeUpButton volumeUpButton;
+    private ChannelDownButton channelDownButton;
+    private ChannelUpButton channelUpButton;
+
 
     public RemoteController(PowerButton powerButton,
-                            VolumeDownButton volumeDownButton,
-                            VolumeUpButton volumeUpButton) {
+                            VolumeDownButton volumeDownButton, VolumeUpButton volumeUpButton,
+                            ChannelDownButton channelDownButton, ChannelUpButton channelUpButton
+                            )
+    {
         this.powerButton = powerButton;
         this.volumeDownButton = volumeDownButton;
         this.volumeUpButton = volumeUpButton;
+        this.channelDownButton = channelDownButton;
+        this.channelUpButton = channelUpButton;
+
     }
+
     //메서드 구현
     //PowerButton 의 메서드를 구현
     public void onPressedPowerButton(){
@@ -28,14 +37,30 @@ public class RemoteController {
         volumeDownButton.onPressed();
     }
     public void onDownVolumeDownButton(){
-        volumeUpButton.onPressed();
+        volumeDownButton.onDown();
     }
     public void onPressedVolumeUpButton(){
         volumeUpButton.onPressed();
     }
     public void onUpVolumeUpButton(){
-        volumeDownButton.onPressed();
+        volumeUpButton.onUp();
     }
+
+    public void onPressedChannelDownButton(){
+        channelDownButton.onPressed();
+    }
+    public void onDownChannelDownButton(){
+        channelDownButton.onDown();
+    }
+    public void onPressedChannelUpButton(){
+        channelUpButton.onPressed();
+    }
+    public void onUpChannelUpButton(){
+        channelUpButton.onUp();
+    }
+
+
+
 
 
 
